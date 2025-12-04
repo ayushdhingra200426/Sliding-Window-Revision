@@ -1,0 +1,35 @@
+-- when we can flip at most k bits
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int maxConsecutiveOnesIII(const vector<int>& a, int k){
+    // start your solution
+    int left=0;
+    int maxlen=0;
+    int cntzero=0;
+    for(int right=0;right<a.size();right++){
+        
+        if(a[right]==0){
+            cntzero++;
+        }
+        if(cntzero>k){
+            if(a[left]==0){
+                cntzero--;
+            }
+            left++;
+        }
+        maxlen=max(maxlen,right-left+1);
+    }
+
+    
+   
+
+// write your solution here 
+
+
+  return maxlen;
+
+
+// end your solution
+}
